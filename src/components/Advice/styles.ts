@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+import PatternDesktop from "../../assets/pattern-divider-desktop.svg"
+import PatternMobile from "../../assets/pattern-divider-mobile.svg"
+
 export const Wrapper = styled.div`
   background-color: var(--dark-grayish-blue);
 
@@ -8,19 +11,16 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   
-  height: 400px;
-  width: 600px;
-  padding-top: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 80px;
+  min-height: 400px;
+  max-width: 600px;
+  padding: 30px 50px 80px 50px;
 
   border-radius: 15px;
   position: relative;
 
   @media (max-width: 425px) {
-    width: 400px;
-    height: 500px;
+    height: 400px;
+    padding: 15px 20px 80px 20px;
   }
 `
 
@@ -30,13 +30,27 @@ export const NumberAdvice = styled.p`
   display: flex;
   gap: 12px;
   letter-spacing: 5px;
+
+  @media (max-width: 425px) {
+    margin-bottom: 0;
+  }
 `
 
 export const Text = styled.h1`
   color: var( --light-cyan);
+  text-align: center;
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
 
   @media (max-width: 425px) {
     font-size: 25px;
+    margin: 0;
   }
 `
 
@@ -53,8 +67,8 @@ export const Button = styled.button`
   transform: translateY(50%);
   border: none;
 
-    :hover {
-      box-shadow: 0px 4px 38px 20px var(--neon-green);
+    &:hover:not(:disabled) {
+      box-shadow: 0px 0px 40px 3px var(--neon-green);
     }
 
     &:disabled {
@@ -62,3 +76,15 @@ export const Button = styled.button`
       cursor: not-allowed;
     }
   `
+
+export const Divider = styled.div`
+  background-image: url(${PatternDesktop});
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40px;
+  width: 100%;
+
+  @media (max-width: 425px) {
+    background-image: url(${PatternMobile})
+  }
+`

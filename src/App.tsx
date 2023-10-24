@@ -1,8 +1,8 @@
-import { RandomPhrase }  from "./components";
+import { RandomAdvice } from "./components/Advice";
 
 function App() {
   return (
-    <RandomPhrase />
+    <RandomAdvice />
   );
 }
 
